@@ -1,0 +1,93 @@
+:root {
+  --tile-size: 3rem;
+}
+#board {
+  grid-template-columns: repeat(8, var(--tile-size));
+  grid-auto-rows: var(--tile-size);
+  touch-action: manipulation;
+}
+.tile {
+  display: grid;
+  place-items: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  user-select: none;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  border: 1px solid rgb(209 213 219);
+  background: #f9fafb;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.06);
+  transition: transform 0.25s, box-shadow 0.25s, opacity 0.25s;
+}
+.tile:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgb(0 0 0 / 0.08);
+}
+.tile:active {
+  transform: scale(0.95);
+}
+.tile.removing {
+  opacity: 0.35;
+  transform: scale(1.15) rotate(4deg);
+}
+
+/* Light Theme Note Colors */
+.tile.𝅝 {
+  background: #ffe6e8;
+  color: #c62828;
+}
+.tile.𝅗𝅥 {
+  background: #e7f7ea;
+  color: #2e7d32;
+}
+.tile.𝅘𝅥 {
+  background: #e5f2ff;
+  color: #1565c0;
+}
+.tile.𝅘𝅥𝅮 {
+  background: #f3e8ff;
+  color: #6a1b9a;
+}
+.tile.𝅘𝅥𝅯 {
+  background: #fff5e6;
+  color: #ef6c00;
+}
+
+/* Dark Theme Base */
+.dark .tile {
+  background: rgb(55 65 81);
+  border-color: rgb(55 65 81);
+}
+/* Dark Theme Note Colors */
+.dark .tile.𝅝 {
+  background: #5c0003;
+  color: #ffabad;
+}
+.dark .tile.𝅗𝅥 {
+  background: #003912;
+  color: #9bffb3;
+}
+.dark .tile.𝅘𝅥 {
+  background: #002c55;
+  color: #9cd5ff;
+}
+.dark .tile.𝅘𝅥𝅮 {
+  background: #321046;
+  color: #e0b6ff;
+}
+.dark .tile.𝅘𝅥𝅯 {
+  background: #543100;
+  color: #ffd9a6;
+}
+
+/* Responsive Tiles */
+@media (max-width: 600px) {
+  :root {
+    --tile-size: 2.5rem;
+  }
+}
+@media (max-width: 420px) {
+  :root {
+    --tile-size: 2rem;
+  }
+}

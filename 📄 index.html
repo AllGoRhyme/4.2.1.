@@ -1,0 +1,77 @@
+<html lang="ka" class="scroll-smooth antialiased">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>მუსიკალური Match‑3</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:," />
+</head>
+
+<body class="min-h-screen flex flex-col items-center gap-10 py-8
+             bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+
+  <!-- Header -->
+  <header class="w-full max-w-5xl flex items-center justify-between px-4 md:px-0">
+    <h1 class="text-2xl font-bold">🎶 Match‑3 (4.2.1.)</h1>
+
+    <!-- Theme toggle -->
+    <label class="inline-flex items-center cursor-pointer">
+      <span class="mr-2 text-sm">🌞</span>
+      <input id="theme-toggle" type="checkbox" class="sr-only peer">
+      <div class="w-11 h-6 rounded-full bg-gray-300 peer-checked:bg-indigo-600 relative
+                  after:content-[''] after:absolute after:top-1 after:left-1 after:w-4 after:h-4
+                  after:rounded-full after:bg-white after:transition-transform
+                  peer-checked:after:translate-x-5"></div>
+      <span class="ml-2 text-sm">🌙</span>
+    </label>
+  </header>
+
+  <!-- Main Grid -->
+  <main class="w-full max-w-5xl grid md:grid-cols-[auto,1fr,auto] gap-6 px-4 md:px-0">
+
+    <!-- Score Panel -->
+    <section id="score-container" class="p-6 rounded-lg bg-white dark:bg-gray-800 shadow text-center space-y-2">
+      <h2 class="text-lg font-semibold">ქულა</h2>
+      <div id="score" class="text-4xl font-extrabold text-green-600">0 / 88</div>
+      <div id="timer" class="font-semibold text-red-600">დრო: 90წ</div>
+
+      <button id="restart-btn" class="mt-4 px-4 py-2 text-sm font-semibold text-white bg-green-600 rounded
+                     hover:bg-green-700 active:scale-95 transition">
+        🔁 დაწყება
+      </button>
+    </section>
+
+    <!-- Game Board -->
+    <section class="flex justify-center">
+      <div id="board" class="grid gap-1"></div>
+    </section>
+
+    <!-- Leaderboard -->
+    <aside id="leaderboard-container" class="p-6 rounded-lg bg-white dark:bg-gray-800 shadow text-center">
+      <h2 class="text-lg font-semibold">არქივი</h2>
+      <ol id="leaderboard" class="mt-2 max-h-64 overflow-y-auto space-y-1 text-left leading-relaxed
+                 list-decimal list-inside"></ol>
+    </aside>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
